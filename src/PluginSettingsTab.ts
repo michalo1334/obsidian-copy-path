@@ -21,6 +21,15 @@ export class CopyPathPluginSettingsTab extends PluginSettingsTabBase<CopyPathPlu
       });
 
     new SettingEx(this.containerEl)
+      .setName('Prefer the hovered link target')
+      .setDesc(
+        'When the mouse rests on a link to a note, PDF, or other vault file, the copy commands take the path of the linked file instead of the active note'
+      )
+      .addToggle((toggle) => {
+        this.bind(toggle, 'copyHoveredLinkPath');
+      });
+
+    new SettingEx(this.containerEl)
       .setName('Add trailing slash to folder paths')
       .setDesc(
         'When copying folder paths, append a trailing slash to distinguish them from files'
